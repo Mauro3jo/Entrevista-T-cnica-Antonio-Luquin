@@ -9,25 +9,25 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" class="form-control" v-model="producto.nombre">
+                                    <input type="text" class="form-control" v-model="productos.nombre">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Descripcion</label>
-                                    <input type="text" class="form-control" v-model="producto.descripcion">
+                                    <input type="text" class="form-control" v-model="productos.descripcion">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Precio</label>
-                                    <input type="decimal" class="form-control" v-model="producto.precio">
+                                    <input type="decimal" class="form-control" v-model="productos.precio">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Stock</label>
-                                    <input type="number" class="form-control" v-model="producto.stock">
+                                    <input type="number" class="form-control" v-model="productos.stock">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -50,7 +50,7 @@ export default {
                 nombre:"",
                 descripcion:"",
                 precio:0,
-                stock:0
+                stock:0,
             }
         }
     },
@@ -61,17 +61,17 @@ export default {
         async mostrarProductos(){
             await this.axios.get(`/api/producto/${this.$route.params.id}`).then(response=>{
                 const { nombre, descripcion,precio,stock } = response.data
-                this.producto.nombre = nombre
-                this.producto.descripcion = descripcion
-                this.producto.precio = precio
-                this.producto.stock = stock
+                this.productos.nombre = nombre
+                this.productos.descripcion = descripcion
+                this.productos.precio = precio
+                this.productos.stock = stock
 
             }).catch(error=>{
                 console.log(error)
             })
         },
         async actualizar(){
-            await this.axios.put(`/api/producto/${this.$route.params.id}`,this.producto).then(response=>{
+            await this.axios.put(`/api/producto/${this.$route.params.id}`,this.productos).then(response=>{
                 this.$router.push({name:"mostrarProductos"})
             }).catch(error=>{
                 console.log(error)
