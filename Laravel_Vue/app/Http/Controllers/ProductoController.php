@@ -39,9 +39,9 @@ class ProductoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Producto $productos)
-    {
-        return response()->json($productos);
+    public function show($id)
+    {   $producto = Producto::find($id);
+        return response()->json($producto);
     }
 
     /**
@@ -49,18 +49,18 @@ class ProductoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $producto = Producto::find($id);
+        return response()->json($producto);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, $id)
     {
-        $producto->fill($request->post())->save;
-        return response()->json([
-            'producto'=>$producto
-        ]);
+        $producto = Producto::find($id);
+        $producto->update($request->all());
+        return response()->json('Producto Editado');
     }
 
     /**
