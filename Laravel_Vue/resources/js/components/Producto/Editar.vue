@@ -15,19 +15,19 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Descripcion</label>
-                                    <input type="text" class="form-control" v-model="productos.descripcion">
+                                    <input type="text"  class="form-control" v-model="productos.descripcion">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Precio</label>
-                                    <input type="decimal" class="form-control" v-model="productos.precio">
+                                    <input type="decimal" onkeydown="return /[1-9, ]/i.test(event.key)" class="form-control" v-model="productos.precio">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Stock</label>
-                                    <input type="number" class="form-control" v-model="productos.stock">
+                                    <input type="number" onkeydown="return /[1-9, ]/i.test(event.key)"  class="form-control" v-model="productos.stock">
                                 </div>
                             </div>
                             <div class="col-12">

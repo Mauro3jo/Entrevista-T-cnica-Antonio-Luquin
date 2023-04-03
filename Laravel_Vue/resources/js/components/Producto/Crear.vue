@@ -9,13 +9,13 @@
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input type="text" onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" v-model="producto.nombre">
+                                    <input type="text"  class="form-control" v-model="producto.nombre">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
                                 <div class="form-group">
                                     <label>Descripcion</label>
-                                    <input type="text"  onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" v-model="producto.descripcion">
+                                    <input type="text"   class="form-control" v-model="producto.descripcion">
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
